@@ -16,6 +16,7 @@ FROM oven/bun:1-alpine
 
 WORKDIR /app
 
+COPY --from=builder /app/bun.lock /app/bun.lock
 COPY --from=builder /app/package.json /app/package.json
 COPY --from=builder /app/dist /app/dist
 COPY --from=builder /app/node_modules /app/node_modules
